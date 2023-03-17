@@ -1,11 +1,12 @@
-FROM ubuntu:14.04.3
-RUN apt-get update && apt-get install -y mysql-server
+FROM mysql:8.0.21
 
-# Ensure we won't bind to localhost only
-RUN grep -v bind-address /etc/mysql/my.cnf > temp.txt \
-  && mv temp.txt /etc/mysql/my.cnf
+ENV LC_ALL=C.UTF-8
+ENV character-set-server utf8
+ENV collation-server utf8_general_ci
+ENV default-character-set utf8
+ENV default-collation utf8_general_ci
 
-# It doesn't seem needed since I'll use -p, but it can't hurt
-EXPOSE 3306
+ENV MYSQL_DATABASE WEBROOT
+ENV MYSQL_ROOT_PASSWORD password
 
-CMD /etc/init.d/mysql start && tail -F /var/log/mysql.log
+expose 3306
