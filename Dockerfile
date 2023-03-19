@@ -6,5 +6,3 @@ ENV MYSQL_ROOT_PASSWORD=rootpwd
 ENV MYSQL_DATABASE=review-db
 ENV MYSQL_USER=user
 ENV MYSQL_PASSWORD=pwd
-
-ENTRYPOINT ["docker", "run", "mongo"]
