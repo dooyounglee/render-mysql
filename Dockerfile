@@ -1,4 +1,4 @@
-FROM mysql:5.7.13
+FROM mysql:5.7
 COPY replication.cnf /etc/mysql/conf.d
 
 COPY common-schema.sql /docker-entrypoint-initdb.d/3.common-schema.sql
